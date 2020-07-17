@@ -43,6 +43,7 @@ read(string&) -> type[kernelrelease]
 print(newline)
 print(rcolorized[:1, 35:]) -> "CPU: " <-
 print(rcolorized[:1, 31:]) -> " " <-
+read(string&) -> type[cpu]
 print(rcolorized[:1, 34:]) -> "Uptime: " <-
 print(rcolorized[:1, 33:]) -> " " <-
 read(string&) -> type[uptime]
