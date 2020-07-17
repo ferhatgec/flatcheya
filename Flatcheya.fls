@@ -1,0 +1,79 @@
+/> MIT License
+#
+# Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
+# Distributed under the terms of the MIT License.
+# 
+</
+
+main() -> main {
+/>
+	username.@.hostname
+</
+print(rcolorized[:1, 94:]) -> " " <-
+read(string&) -> type[username]
+print(rcolorized[:1, 96:]) -> ".@." <-
+print(rcolorized[:1, 34:]) -> " " <-
+read(string&) -> type[hostname]
+print(newline)
+print(rcolorized[:1, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
+print(newline)
+print(newline)
+/> OS Name. </
+print(rcolorized[:1, 31:]) -> "OS Name: " <-
+print(rcolorized[:1, 36:]) -> " " <-
+read(string&) -> type[osname]
+print(newline)
+/> System Architecture (x86_64, IA32, ARM64 etc.) </
+print(rcolorized[:1, 36:]) -> "Architecture: " <-
+print(rcolorized[:1, 33:]) -> " " <-
+read(string&) -> type[arch]
+print(newline)
+/> Hostname </
+print(rcolorized[:1, 32:]) -> "Hostname: " <-
+print(rcolorized[:1, 35:]) -> " " <-
+read(string&) -> type[hostname]
+print(newline)
+print(rcolorized[:1, 34:]) -> "Kernel Name: " <-
+print(rcolorized[:1, 35:]) -> " " <-
+read(string&) -> type[kernelname]
+print(newline)
+print(rcolorized[:1, 33:]) -> "Kernel Release: " <-
+print(rcolorized[:1, 34:]) -> " " <-
+read(string&) -> type[kernelrelease]
+print(newline)
+print(rcolorized[:1, 35:]) -> "CPU: " <-
+print(rcolorized[:1, 31:]) -> " " <-
+print(rcolorized[:1, 34:]) -> "Uptime: " <-
+print(rcolorized[:1, 33:]) -> " " <-
+read(string&) -> type[uptime]
+print(newline)
+print(rcolorized[:1, 35:]) -> "Terminal: " <-
+print(rcolorized[:1, 32:]) -> " " <-
+read(string&) -> type[terminal]
+print(newline)
+/> Shell (e.g: Scrift, Bash, Zsh, Fish, Ksh etc.) </
+print(rcolorized[:1, 36:]) -> "Shell: " <-
+print(rcolorized[:1, 31:]) -> " " <-
+read(string&) -> type[shell]
+print(newline)
+/> 16bit Color test. </
+print(colorized[:1, 30:]) -> "███" <-
+print(colorized[:1, 31:]) -> "███" <-
+print(colorized[:1, 32:]) -> "███" <-
+print(colorized[:1, 33:]) -> "███" <-
+print(colorized[:1, 34:]) -> "███" <-
+print(colorized[:1, 35:]) -> "███" <-
+print(colorized[:1, 36:]) -> "███" <-
+print(colorized[:1, 37:]) -> "███" <-
+print(newline)
+print(colorized[:1, 90:]) -> "███" <-
+print(colorized[:1, 91:]) -> "███" <-
+print(colorized[:1, 92:]) -> "███" <-
+print(colorized[:1, 93:]) -> "███" <-
+print(colorized[:1, 94:]) -> "███" <-
+print(colorized[:1, 95:]) -> "███" <-
+print(colorized[:1, 96:]) -> "███" <-
+print(colorized[:1, 97:]) -> "███" <-
+print(newline)
+}
+
