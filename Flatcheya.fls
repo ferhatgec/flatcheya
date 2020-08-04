@@ -5,58 +5,32 @@
 # 
 </
 
-main() -> main {
-/>
-	username.@.hostname
-</
+func -> GetUsername() {
+	/> username.@.hostname </
 	print(rcolorized[:11, 94:]) -> " " <-
 	read(string&) -> type[username]
 	print(rcolorized[:11, 96:]) -> ".@." <-
 	print(rcolorized[:11, 34:]) -> " " <-
 	read(string&) -> type[hostname]
 	print(newline)
-	print(rcolorized[:11, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
-	print(newline)
-	print(newline)
-	/> OS Name. </
+}
+
+func -> GetOSName() {
+	/> FreeBSD, Ubuntu etc. </
 	print(rcolorized[:11, 31:]) -> "OS Name: " <-
 	print(rcolorized[:11, 36:]) -> " " <-
 	read(string&) -> type[osname]
-	print(newline)
+}
+
+func -> GetArchName() {
 	/> System Architecture (x86_64, IA32, ARM64 etc.) </
 	print(rcolorized[:11, 36:]) -> "Architecture: " <-
 	print(rcolorized[:11, 33:]) -> " " <-
 	read(string&) -> type[arch]
 	print(newline)
-	/> Hostname </
-	print(rcolorized[:11, 32:]) -> "Hostname: " <-
-	print(rcolorized[:11, 35:]) -> " " <-
-	read(string&) -> type[hostname]
-	print(newline)
-	print(rcolorized[:11, 34:]) -> "Kernel Name: " <-
-	print(rcolorized[:11, 35:]) -> " " <-
-	read(string&) -> type[kernelname]
-	print(newline)
-	print(rcolorized[:11, 33:]) -> "Kernel Release: " <-
-	print(rcolorized[:11, 34:]) -> " " <-
-	read(string&) -> type[kernelrelease]
-	print(newline)
-	print(rcolorized[:11, 35:]) -> "CPU: " <-
-	print(rcolorized[:11, 31:]) -> " " <-
-	read(string&) -> type[cpu]
-	print(rcolorized[:11, 34:]) -> "Uptime: " <-
-	print(rcolorized[:11, 33:]) -> " " <-
-	read(string&) -> type[uptime]
-	print(newline)
-	print(rcolorized[:11, 35:]) -> "Terminal: " <-
-	print(rcolorized[:11, 32:]) -> " " <-
-	read(string&) -> type[terminal]
-	print(newline)
-	/> Shell (e.g: Scrift, Bash, Zsh, Fish, Ksh etc.) </
-	print(rcolorized[:11, 36:]) -> "Shell: " <-
-	print(rcolorized[:11, 31:]) -> " " <-
-	read(string&) -> type[shell]
-	print(newline)
+}
+
+func -> 16BitColorTest() {
 	/> 16bit Color test. </
 	print(colorized[:1, 30:]) -> "███" <-
 	print(colorized[:1, 31:]) -> "███" <-
@@ -76,5 +50,75 @@ main() -> main {
 	print(colorized[:1, 96:]) -> "███" <-
 	print(colorized[:1, 97:]) -> "███" <-
 	print(newline)
+}
+
+func -> GetShell() {
+	/> Shell (e.g: Scrift, Bash, Zsh, Fish, Ksh etc.) </
+	print(rcolorized[:11, 36:]) -> "Shell: " <-
+	print(rcolorized[:11, 31:]) -> " " <-
+	read(string&) -> type[shell]
+	print(newline)
+}
+
+func -> GetTerminalEmulator() {
+	print(rcolorized[:11, 35:]) -> "Terminal: " <-
+	print(rcolorized[:11, 32:]) -> " " <-
+	read(string&) -> type[terminal]
+	print(newline)
+}
+
+func -> GetUptime() {
+	print(rcolorized[:11, 34:]) -> "Uptime: " <-
+	print(rcolorized[:11, 33:]) -> " " <-
+	read(string&) -> type[uptime]
+	print(newline)
+}
+
+func -> GetCPUName() {
+	print(rcolorized[:11, 35:]) -> "CPU: " <-
+	print(rcolorized[:11, 31:]) -> " " <-
+	read(string&) -> type[cpu]
+}
+
+func -> GetKernelRelease() {
+	print(rcolorized[:11, 33:]) -> "Kernel Release: " <-
+	print(rcolorized[:11, 34:]) -> " " <-
+	read(string&) -> type[kernelrelease]
+	print(newline)
+}
+
+func -> GetKernelName() {
+	print(rcolorized[:11, 34:]) -> "Kernel Name: " <-
+	print(rcolorized[:11, 35:]) -> " " <-
+	read(string&) -> type[kernelname]
+	print(newline)
+}
+
+func -> GetHostname() {
+	print(rcolorized[:11, 32:]) -> "Hostname: " <-
+	print(rcolorized[:11, 35:]) -> " " <-
+	read(string&) -> type[hostname]
+	print(newline)
+}
+
+main() -> main {
+/>
+	username.@.hostname
+</
+	func -> GetUsername()
+	print(rcolorized[:11, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
+	print(newline)
+	print(newline)
+	func -> GetOSName()
+	print(newline)
+	func -> GetArchName()
+	func -> GetHostname()
+	func -> GetKernelName()
+	func -> GetKernelRelease()
+	func -> GetCPUName()
+	func -> GetUptime()
+	func -> GetTerminalEmulator()
+	func -> GetShell()
+	func -> 16BitColorTest()
 }
 
