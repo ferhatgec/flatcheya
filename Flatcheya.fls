@@ -101,6 +101,13 @@ func -> GetHostname() {
 	print(newline)
 }
 
+func -> GetDesktopEnvironment() {
+	print(rcolorized[:11, 93:]) -> "Desktop Env: " <-
+	print(rcolorized[:11, 95:]) -> " " <-
+	read(string&) -> type[XDG_CURRENT_DESKTOP]
+	print(newline)
+}
+
 main() -> main {
 />
 	username.@.hostname
@@ -119,6 +126,7 @@ main() -> main {
 	func -> GetUptime()
 	func -> GetTerminalEmulator()
 	func -> GetShell()
+	func -> GetDesktopEnvironment()
 	func -> 16BitColorTest()
 }
 
