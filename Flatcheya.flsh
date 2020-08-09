@@ -9,6 +9,7 @@
 defin[FLATCHEYA_VERSION] -> print(string) -> "0.2-beta-1" <-
 
 /> Defined colors </
+defin[BOLD_LIGHT_GREEN] -> print(rcolorized[:11, 92:]) <-
 defin[BOLD_LIGHT_MAGENTA] -> print(rcolorized[:11, 95:]) <-
 defin[BOLD_LIGHT_BLUE] -> print(rcolorized[:11, 94:]) <-
 defin[BOLD_BLUE] -> print(rcolorized[:11, 34:]) <-
@@ -23,7 +24,7 @@ defin[Slashn] -> print(newline) <-
 func -> GetVersion() {
 	put[BOLD_YELLOW]
 	print(string) -> "Build: "
-	put[BOLD_MAGENTA]
+	put[BOLD_LIGHT_GREEN]
 	put[FLATCHEYA_VERSION]
 	put[Slashn]
 }
