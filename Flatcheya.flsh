@@ -1,0 +1,137 @@
+/> MIT License
+# Flatcheya Header file.
+# Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
+# Distributed under the terms of the MIT License.
+# 
+</
+
+/> Version </
+defin[FLATCHEYA_VERSION] -> print(string) -> "0.2-beta-1" <-
+
+/> Defined colors </
+defin[BOLD_LIGHT_MAGENTA] -> print(rcolorized[:11, 95:]) <-
+defin[BOLD_LIGHT_BLUE] -> print(rcolorized[:11, 94:]) <-
+defin[BOLD_BLUE] -> print(rcolorized[:11, 34:]) <-
+defin[BOLD_CYAN] -> print(rcolorized[:11, 36:]) <-
+defin[BOLD_YELLOW] -> print(rcolorized[:11, 33:]) <-
+defin[BOLD_GREEN] -> print(rcolorized[:11, 32:]) <-
+defin[BOLD_RED] -> print(rcolorized[:11, 31:]) <-
+defin[BOLD_MAGENTA] -> print(rcolorized[:11, 35:]) <-
+
+defin[Slashn] -> print(newline) <-
+
+func -> GetVersion() {
+	put[BOLD_YELLOW]
+	print(string) -> "Build: "
+	put[BOLD_MAGENTA]
+	put[FLATCHEYA_VERSION]
+	put[Slashn]
+}
+
+func -> GetUsername() {
+	/> username.@.hostname </
+	put[BOLD_LIGHT_BLUE]
+	read(string&) -> type[username]
+	print(rcolorized[:11, 96:]) -> ".@." <-
+	put[BOLD_BLUE]
+	read(string&) -> type[hostname]
+	print(newline)
+}
+
+func -> GetOSName() {
+	/> FreeBSD, Ubuntu etc. </
+	print(rcolorized[:11, 31:]) -> "OS Name: " <-
+	put[BOLD_CYAN]
+	read(string&) -> type[osname]
+}
+
+func -> GetArchName() {
+	/> System Architecture (x86_64, IA32, ARM64 etc.) </
+	print(rcolorized[:11, 36:]) -> "Architecture: " <-
+	put[BOLD_YELLOW]
+	read(string&) -> type[arch]
+	put[Slashn]
+}
+
+func -> 16BitColorTest() {
+	/> 16bit Color test. </
+	print(colorized[:1, 30:]) -> "███" <-
+	print(colorized[:1, 31:]) -> "███" <-
+	print(colorized[:1, 32:]) -> "███" <-
+	print(colorized[:1, 33:]) -> "███" <-
+	print(colorized[:1, 34:]) -> "███" <-
+	print(colorized[:1, 35:]) -> "███" <-
+	print(colorized[:1, 36:]) -> "███" <-
+	print(colorized[:1, 37:]) -> "███" <-
+	put[Slashn]
+	print(colorized[:1, 90:]) -> "███" <-
+	print(colorized[:1, 91:]) -> "███" <-
+	print(colorized[:1, 92:]) -> "███" <-
+	print(colorized[:1, 93:]) -> "███" <-
+	print(colorized[:1, 94:]) -> "███" <-
+	print(colorized[:1, 95:]) -> "███" <-
+	print(colorized[:1, 96:]) -> "███" <-
+	print(colorized[:1, 97:]) -> "███" <-
+	put[Slashn]
+}
+
+func -> GetShell() {
+	/> Shell (e.g: Scrift, Bash, Zsh, Fish, Ksh etc.) </
+	print(rcolorized[:11, 36:]) -> "Shell: " <-
+	put[BOLD_RED]
+	read(string&) -> type[shell]
+	put[Slashn]
+}
+
+func -> GetTerminalEmulator() {
+	print(rcolorized[:11, 35:]) -> "Terminal: " <-
+	put[BOLD_GREEN]
+	read(string&) -> type[terminal]
+	print(newline)
+}
+
+func -> GetUptime() {
+	print(rcolorized[:11, 34:]) -> "Uptime: " <-
+	put[BOLD_YELLOW]
+	read(string&) -> type[uptime]
+	put[Slashn]
+}
+
+func -> GetCPUName() {
+	print(rcolorized[:11, 35:]) -> "CPU: " <-
+	put[BOLD_RED]
+	read(string&) -> type[cpu]
+}
+
+func -> GetKernelRelease() {
+	print(rcolorized[:11, 33:]) -> "Kernel Release: " <-
+	put[BOLD_BLUE]
+	read(string&) -> type[kernelrelease]
+	put[Slashn]
+}
+
+func -> GetKernelName() {
+	print(rcolorized[:11, 34:]) -> "Kernel Name: " <-
+	put[BOLD_MAGENTA]
+	read(string&) -> type[kernelname]
+	put[Slashn]
+}
+
+func -> GetHostname() {
+	print(rcolorized[:11, 32:]) -> "Hostname: " <-
+	put[BOLD_MAGENTA]
+	read(string&) -> type[hostname]
+	put[Slashn]
+}
+
+func -> GetDesktopEnvironment() {
+	print(rcolorized[:11, 93:]) -> "Desktop Env: " <-
+	put[BOLD_LIGHT_MAGENTA]
+	read(string&) -> type[XDG_CURRENT_DESKTOP]
+	put[Slashn]
+}
+
+main() -> main {
+
+}
+
