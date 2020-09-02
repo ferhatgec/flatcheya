@@ -7,6 +7,14 @@
 
 import("Flatcheya.flsh") -> main <-
 
+#uptime ->
+	if[var(system) -> check[uname -s] <- (==) var(string) -> FreeBSD <-] -> {
+	} else -> {
+		put[main -> func -> GetUptime() <-]
+	} <-
+#uptime <-
+
+
 main() -> main {
 	put[main -> func -> GetUsername() <-]
 	print(rcolorized[:11, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
@@ -20,7 +28,7 @@ main() -> main {
 	put[main -> func -> GetKernelName() <-]
 	put[main -> func -> GetKernelRelease() <-]
 	put[main -> func -> GetCPUName() <-]
-	put[main -> func -> GetUptime() <-]
+	statement[#uptime]
 	put[main -> func -> GetTerminalEmulator() <-]
 	put[main -> func -> GetShell() <-]
 	put[main -> func -> GetDesktopEnvironment() <-]

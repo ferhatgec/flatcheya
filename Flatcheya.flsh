@@ -74,6 +74,7 @@ func -> 16BitColorTest() {
 	print(colorized[:1, 96:]) -> "███" <-
 	print(colorized[:1, 97:]) -> "███" <-
 	put[Slashn]
+	put[Slashn]
 }
 
 func -> GetShell() {
