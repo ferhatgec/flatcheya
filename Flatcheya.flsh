@@ -5,6 +5,16 @@
 # 
 </
 
+#uptime -> 
+	if[var(system) -> check[uname] <- (!=) var(string) -> FreeBSD <-] -> {
+		print(rcolorized[:11, 34:]) -> "Uptime: " <-
+		put[BOLD_YELLOW]
+		read(string&) -> type[uptime]
+		put[slashn]
+	} <-
+#uptime <-
+
+
 /> Version </
 defin[FLATCHEYA_VERSION] -> print(string) -> "0.2-beta-1" <-
 
@@ -27,7 +37,7 @@ func -> GetVersion() {
 	put[BOLD_LIGHT_GREEN]
 	put[FLATCHEYA_VERSION]
 	put[Slashn]
-}
+} GetVersion;
 
 func -> GetUsername() {
 	/> username.@.hostname </
@@ -37,14 +47,14 @@ func -> GetUsername() {
 	put[BOLD_BLUE]
 	read(string&) -> type[hostname]
 	print(newline)
-}
+} GetUsername;
 
 func -> GetOSName() {
 	/> FreeBSD, Ubuntu etc. </
 	print(rcolorized[:11, 31:]) -> "OS Name: " <-
 	put[BOLD_CYAN]
 	read(string&) -> type[osname]
-}
+} GetOSName;
 
 func -> GetArchName() {
 	/> System Architecture (x86_64, IA32, ARM64 etc.) </
@@ -52,7 +62,7 @@ func -> GetArchName() {
 	put[BOLD_YELLOW]
 	read(string&) -> type[arch]
 	put[Slashn]
-}
+} GetArchName;
 
 func -> 16BitColorTest() {
 	/> 16bit Color test. </
@@ -75,7 +85,7 @@ func -> 16BitColorTest() {
 	print(colorized[:1, 97:]) -> "███" <-
 	put[Slashn]
 	put[Slashn]
-}
+} 16BitColorTest;
 
 func -> GetShell() {
 	/> Shell (e.g: Scrift, Bash, Zsh, Fish, Ksh etc.) </
@@ -83,57 +93,49 @@ func -> GetShell() {
 	put[BOLD_RED]
 	read(string&) -> type[shell]
 	put[Slashn]
-}
+} GetShell;
 
 func -> GetTerminalEmulator() {
 	print(rcolorized[:11, 35:]) -> "Terminal: " <-
 	put[BOLD_GREEN]
 	read(string&) -> type[terminal]
-	print(newline)
-}
+	put[Slashn]
+} GetTerminalEmulator;
 
 func -> GetUptime() {
-	print(rcolorized[:11, 34:]) -> "Uptime: " <-
-	put[BOLD_YELLOW]
-	read(string&) -> type[uptime]
-	put[Slashn]
-}
+	statement[#uptime]
+} GetUptime;
 
 func -> GetCPUName() {
 	print(rcolorized[:11, 35:]) -> "CPU: " <-
 	put[BOLD_RED]
 	read(string&) -> type[cpu]
-}
+} GetCPUName;
 
 func -> GetKernelRelease() {
 	print(rcolorized[:11, 33:]) -> "Kernel Release: " <-
 	put[BOLD_BLUE]
 	read(string&) -> type[kernelrelease]
 	put[Slashn]
-}
+} GetKernelRelease;
 
 func -> GetKernelName() {
 	print(rcolorized[:11, 34:]) -> "Kernel Name: " <-
 	put[BOLD_MAGENTA]
 	read(string&) -> type[kernelname]
 	put[Slashn]
-}
+} GetKernelName;
 
 func -> GetHostname() {
 	print(rcolorized[:11, 32:]) -> "Hostname: " <-
 	put[BOLD_MAGENTA]
 	read(string&) -> type[hostname]
 	put[Slashn]
-}
+} GetHostname;
 
 func -> GetDesktopEnvironment() {
 	print(rcolorized[:11, 93:]) -> "Desktop Env: " <-
 	put[BOLD_LIGHT_MAGENTA]
 	read(string&) -> type[XDG_CURRENT_DESKTOP]
 	put[Slashn]
-}
-
-main() -> main {
-
-}
-
+} GetDesktopEnvironment;

@@ -5,33 +5,57 @@
 # 
 </
 
+/> Required 0.3-beta-1 or higher. </
+
 import("Flatcheya.flsh") -> main <-
 
-#uptime ->
-	if[var(system) -> check[uname -s] <- (==) var(string) -> FreeBSD <-] -> {
-	} else -> {
-		put[main -> func -> GetUptime() <-]
-	} <-
-#uptime <-
-
-
 main() -> main {
-	put[main -> func -> GetUsername() <-]
+	/> Username </
+	func -> GetUsername() : main <
+	
+	/> TODO: Use (username + hostname).length </
 	print(rcolorized[:11, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
+	
+	/> Newlines </
 	put[main -> Slashn <-]
 	put[main -> Slashn <-]
-	put[main -> func -> GetVersion() <-]
-	put[main -> func -> GetOSName() <-]
+	
+	/> Flatcheya version */
+	func -> GetVersion() : main <
+	
+	/> OS Name </ 
+	func -> GetOSName() : main <
+	
+	/> Newline </
 	put[main -> Slashn <-]
-	put[main -> func -> GetArchName() <-]
-	put[main -> func -> GetHostname() <-]
-	put[main -> func -> GetKernelName() <-]
-	put[main -> func -> GetKernelRelease() <-]
-	put[main -> func -> GetCPUName() <-]
-	statement[#uptime]
-	put[main -> func -> GetTerminalEmulator() <-]
-	put[main -> func -> GetShell() <-]
-	put[main -> func -> GetDesktopEnvironment() <-]
-	put[main -> func -> 16BitColorTest() <-]
-}
-
+	
+	/> Arch name (amd64, ia32, arm64 etc.) </
+	func -> GetArchName() : main <
+	
+	/> Hostname </
+	func -> GetHostname() : main <
+	
+	/> Kernel name </
+	func -> GetKernelName() : main <
+	
+	/> Kernel version </
+	func -> GetKernelRelease() : main <
+	
+	/> CPU Name </
+	func -> GetCPUName() : main <
+	
+	/> Terminal emulator </
+	func -> GetTerminalEmulator() : main <
+	
+	/> Shell </
+	func -> GetShell() : main <
+	
+	/> DE </
+	func -> GetDesktopEnvironment() : main <
+	
+	/> Newline </
+	put[main -> Slashn <-]
+	
+	/> Colors. </
+	func -> 16BitColorTest() : main <
+} main;
