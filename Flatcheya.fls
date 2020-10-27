@@ -5,6 +5,10 @@
 # 
 </
 
+/> Check version </
+
+except(version) : 0.3 -> { error("Install latest version of FlaScript") print(newline) } version;
+
 /> Required 0.3-beta-1 or higher. </
 
 import("Flatcheya.flsh") -> main <-
@@ -43,6 +47,9 @@ main() -> main {
 	
 	/> CPU Name </
 	func -> GetCPUName() : main <
+	
+	/> Uptime </
+	func -> GetUptime() : main <
 	
 	/> Terminal emulator </
 	func -> GetTerminalEmulator() : main <

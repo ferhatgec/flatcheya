@@ -5,15 +5,6 @@
 # 
 </
 
-#uptime -> 
-	if[var(system) -> check[uname] <- (!=) var(string) -> FreeBSD <-] -> {
-		print(rcolorized[:11, 34:]) -> "Uptime: " <-
-		put[BOLD_YELLOW]
-		read(string&) -> type[uptime]
-		put[slashn]
-	} <-
-#uptime <-
-
 
 /> Version </
 defin[FLATCHEYA_VERSION] -> print(string) -> "0.2-beta-1" <-
@@ -102,15 +93,18 @@ func -> GetTerminalEmulator() {
 	put[Slashn]
 } GetTerminalEmulator;
 
-func -> GetUptime() {
-	statement[#uptime]
-} GetUptime;
-
 func -> GetCPUName() {
 	print(rcolorized[:11, 35:]) -> "CPU: " <-
 	put[BOLD_RED]
 	read(string&) -> type[cpu]
 } GetCPUName;
+
+func -> GetUptime() {
+	print(rcolorized[:11, 96:]) -> "Uptime: " <-
+	put[BOLD_YELLOW]
+	print(spec) -> __UPTIME__ <-
+	put[Slashn]
+} GetUptime;
 
 func -> GetKernelRelease() {
 	print(rcolorized[:11, 33:]) -> "Kernel Release: " <-
