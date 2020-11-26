@@ -1,9 +1,15 @@
+#!/usr/bin/env fla
+
 /> MIT License
-# Flatcheya Header file.
+#
 # Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
 # Distributed under the terms of the MIT License.
 # 
 </
+
+/> Check version </
+
+except(version) : 0.3 -> { error("Install latest version of FlaScript") print(newline) } version;
 
 
 /> Version </
@@ -64,8 +70,8 @@ func -> 16BitColorTest() {
 	print(colorized[:1, 34:]) -> "███" <-
 	print(colorized[:1, 35:]) -> "███" <-
 	print(colorized[:1, 36:]) -> "███" <-
-	print(colorized[:1, 37:]) -> "███" <-
-	put[Slashn]
+	print(colorized[:1, 37:]) -> "███\n" <-
+	
 	print(colorized[:1, 90:]) -> "███" <-
 	print(colorized[:1, 91:]) -> "███" <-
 	print(colorized[:1, 92:]) -> "███" <-
@@ -73,9 +79,7 @@ func -> 16BitColorTest() {
 	print(colorized[:1, 94:]) -> "███" <-
 	print(colorized[:1, 95:]) -> "███" <-
 	print(colorized[:1, 96:]) -> "███" <-
-	print(colorized[:1, 97:]) -> "███" <-
-	put[Slashn]
-	put[Slashn]
+	print(colorized[:1, 97:]) -> "███\n\n" <-
 } 16BitColorTest;
 
 func -> GetShell() {
@@ -133,3 +137,57 @@ func -> GetDesktopEnvironment() {
 	read(string&) -> type[XDG_CURRENT_DESKTOP]
 	put[Slashn]
 } GetDesktopEnvironment;
+
+main() -> main {
+	/> Username </
+	func -> GetUsername()
+	
+	/> TODO: Use (username + hostname).length </
+	print(rcolorized[:11, 94:]) -> "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂" <-
+	
+	/> Newlines </
+	put[Slashn]
+	put[Slashn]
+	
+	/> Flatcheya version */
+	func -> GetVersion()
+	
+	/> OS Name </ 
+	func -> GetOSName()
+	
+	/> Newline </
+	put[Slashn]
+	
+	/> Arch name (amd64, ia32, arm64 etc.) </
+	func -> GetArchName()
+		
+	/> Hostname </
+	func -> GetHostname()
+	
+	/> Kernel name </
+	func -> GetKernelName()
+	
+	/> Kernel version </
+	func -> GetKernelRelease()
+	
+	/> CPU Name </
+	func -> GetCPUName()
+	
+	/> Uptime </
+	func -> GetUptime()
+	
+	/> Terminal emulator </
+	func -> GetTerminalEmulator()
+	
+	/> Shell </
+	func -> GetShell()
+	
+	/> DE </
+	func -> GetDesktopEnvironment()
+	
+	/> Newline </
+	put[Slashn]
+	
+	/> Colors. </
+	func -> 16BitColorTest() : main <
+} main;
